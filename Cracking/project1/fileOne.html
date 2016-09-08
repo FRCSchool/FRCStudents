@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<!--
+  Do you think you can put comments in html?
+-->
+<head>
+<title>
+Lots of stuff
+</title>
+</head>
+<body>
+
+<!--
+  Heads up - this is not html - this is css!
+-->
+  <style>
+  .cell {
+    color: blue;
+    background-color: yellow;
+    border: 1px dashed blue;
+    padding: 25px;
+    height: 125px;
+    width: 249px;
+  }
+
+  #cell6 {
+    color: white;
+    background-color: black;
+  }
+
+  table {
+    border: 2px solid red;
+    padding: 10px;
+  }
+
+  #word {
+      backgroud-color: red;
+  }
+  </style>
+  <!--
+      back to html
+  -->
+<table>
+  <tr>
+    <td id="cell1" class="cell"></td>
+    <td id="cell2" class="cell"></td>
+  </tr>
+  <tr>
+    <td id="cell3" class="cell"><input type="text" name="word" id="word"></td>
+    <td id="cell4" class="cell"></td>
+  </tr>
+  <tr>
+    <td id="cell5" class="cell"></td>
+    <td id="cell6" class="cell"></td>
+  </tr>
+</table>
+</style>
+
+
+<input type="button" name="button" id="button" value="push it" onclick="doit();">
+<div id="list" class="lst"></div>
+
+<!--
+    Heads up - this is javascript language... not html
+-->
+<script language="JavaScript">
+var cell = "";
+for(i=1;i<7;i++){
+  cell = document.getElementById("cell" + i);
+  if(i != 3){
+    cell.innerHTML = "<b>Cell Block #" + i + "</b>";
+  } else {
+    cell.innerHTML = "<b>Cell Block #" + i + "<input type='text' name='word' id='word'></b>";
+  }
+
+}
+
+for(i=0;i<5;i++){
+  var list = document.getElementById("list");
+  console.log("stuff" + i);
+  if(i != 3){
+    list.innerHTML = list.innerHTML + "<p>Stuff" + i + "</p>";
+  } else {
+    list.innerHTML = list.innerHTML + "<p>Stuff" + i + "<input type='text' name='word' id='word'>" + "</p>";
+  }
+}
+
+function doit(){
+  var correctWord = "yikes";
+  var button = document.getElementById("button");
+  var answer = document.getElementById("cell1");
+
+  //alert(button.value);
+  var word = document.getElementById("word");
+  if(word.value == correctWord){
+    answer.innerHTML = "And '" + correctWord + "' is indeed the correct word!";
+  } else {
+    answer.innerHTML = "And '" + word.value + "'? I don't think so!";
+  }
+}
+</script>
+<!--
+  and now we can finish the html
+-->
+</body>
+</html>
